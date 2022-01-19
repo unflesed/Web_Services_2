@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Gems" type="GemsType"/>
+  <xs:complexType name="Visual_parametersType">
+    <xs:sequence>
+      <xs:element name="color">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="red"/>
+            <xs:enumeration value="white"/>
+            <xs:enumeration value="yellow"/>
+            <xs:enumeration value="black"/>
+            <xs:enumeration value="green"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="transparency">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="cutting_methods">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="4"/>
+            <xs:maxInclusive value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValueType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="measure" use="optional" fixed="carats"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="GemType">
+    <xs:sequence>
+      <xs:element name="Name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Ruby"/>
+            <xs:enumeration value="Diamond"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Preciousness">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="semiprecious"/>
+            <xs:enumeration value="precious"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Origin">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="China"/>
+            <xs:enumeration value="India"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="Visual_parametersType" name="Visual_parameters"/>
+      <xs:element type="ValueType" name="Value"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="GemsType">
+    <xs:sequence>
+      <xs:element type="GemType" name="Gem" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

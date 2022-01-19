@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<factory>
+    <candy>
+      <sugar measure = "%">55</sugar>
+      <weight measure = "gram">20</weight>
+    </candy>
+    <candy>
+        <sugar measure = "%">60</sugar>
+        <weight measure = "gram">15</weight>
+    </candy>
+    <candy>
+        <sugar measure = "%">70</sugar>
+        <weight measure = "gram">10</weight>
+    </candy>
+</factory>
